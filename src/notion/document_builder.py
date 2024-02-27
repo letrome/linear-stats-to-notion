@@ -48,6 +48,10 @@ COLOR_PER_STATUS = {
         "name": "gray",
         "hex": "#787774"
     },
+    "Triage": {
+        "name": "default",
+        "hex": "#000000"
+    },
     "Feedback": {
         "name": "brown",
         "hex": "#986E58"
@@ -146,8 +150,9 @@ class DocumentBuilder:
         pie_colors = []
         pie_title = "tickets per status (simplified)"
         pie_data = {
-            'To Do': self.nb_values_for_key(tickets_per_status, 'Backlog') + self.nb_values_for_key(tickets_per_status,
-                                                                                                    'Ready to Dev'),
+            'To Do': self.nb_values_for_key(tickets_per_status, 'Backlog')
+                     + self.nb_values_for_key(tickets_per_status, 'Ready to Dev')
+                     + self.nb_values_for_key(tickets_per_status, 'Triage'),
             'Dev': self.nb_values_for_key(tickets_per_status, 'Dev'),
             'Review': self.nb_values_for_key(tickets_per_status, 'Dev Review') + self.nb_values_for_key(
                 tickets_per_status, 'Product Review') + self.nb_values_for_key(tickets_per_status, 'Feedback'),
@@ -430,7 +435,7 @@ class DocumentBuilder:
     def _gantt_diagram_block(title, axis_format, items: list):
         str_data = ""
         for item in items:
-            str_data += f"section {item["label"]}\n{item["duration"]}   : {item["begin"]}, {item["end"]}\n"
+            str_data += f"section {item['label']}\n{item['duration']}   : {item['begin']}, {item['end']}\n"
         text = f"""
                 gantt
                 title {title}

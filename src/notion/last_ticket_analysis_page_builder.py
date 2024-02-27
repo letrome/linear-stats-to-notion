@@ -52,10 +52,10 @@ class LastTicketAnalysisPageBuilder(DocumentBuilder):
     def _properties_block(self) -> Dict:
         return {
             'properties': {
-                "Nom": self._title_block(self._title),
-                "nb_tickets": self._number_block(value=self._nb_tickets),
-                "generation method": self._select_block(value=self._generation_method),
-                "Date of inspection": self._date_block(self._inspection_date)
+                "Name": self._title_block(self._title),
+                "Nb Tickets": self._number_block(value=self._nb_tickets),
+                "Generation Method": self._select_block(value=self._generation_method),
+                "Date of Inspection": self._date_block(self._inspection_date)
             }
         }
 

@@ -21,10 +21,10 @@ class CycleAnalysisPageBuilder(DocumentBuilder):
     def _properties_block(self) -> Dict:
         return {
             'properties': {
-                "Nom": self._title_block(self._title),
+                "Name": self._title_block(self._title),
                 "Cycle": self._rich_text_block(value=self._cycle_name),
-                "generation method": self._select_block(value=self._generation_method),
-                "Date of inspection": self._date_block(self._inspection_date)
+                "Generation Method": self._select_block(value=self._generation_method),
+                "Date of Inspection": self._date_block(self._inspection_date)
             }
         }
 
